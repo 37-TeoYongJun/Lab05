@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Character : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class Character : MonoBehaviour
             scoreText.text = "Score: " + score;
 
             Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.layer == 4)
+        {
+            SceneManager.LoadScene("GameLoseScene");
         }
     }
 }
